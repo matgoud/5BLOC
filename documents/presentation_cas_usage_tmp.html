@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>presentation_cas_usage.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="projet-web3---dapp-de-cartes-de-collection-numeriques">Projet Web3 - DApp de Cartes de Collection Numeriques</h1>
+<h2 id="1-introduction-et-contexte">1. Introduction et Contexte</h2>
+<p>Ce projet s'inscrit dans le cadre du developpement d'une application decentralisee (DApp) exploitant les principes du Web3. L'objectif est de concevoir une plateforme permettant la gestion et l'echange d'actifs numeriques sous forme de tokens, en respectant des contraintes metier specifiques.</p>
+<p>La blockchain choisie pour ce projet est Ethereum, avec l'utilisation du framework Hardhat pour le developpement et les tests des smart contracts. Les metadonnees des ressources seront stockees sur IPFS afin de garantir leur perennite et leur decentralisation.</p>
+<hr>
+<h2 id="2-presentation-du-cas-dusage">2. Presentation du Cas d'Usage</h2>
+<h3 id="21-concept-general">2.1 Concept General</h3>
+<p>Le cas d'usage retenu est un <strong>marche decentralise de cartes de collection numeriques</strong> de type trading cards. Les utilisateurs peuvent collectionner des cartes representant des personnages, creatures ou objets avec differents niveaux de rarete. Ces cartes peuvent etre echangees entre joueurs selon des regles definies par les smart contracts.</p>
+<h3 id="22-objectifs-fonctionnels">2.2 Objectifs Fonctionnels</h3>
+<ul>
+<li>Permettre aux utilisateurs de posseder des cartes numeriques uniques et verifiables</li>
+<li>Offrir un systeme d'echange securise et transparent entre joueurs</li>
+<li>Garantir l'authenticite et la rarete de chaque carte</li>
+<li>Tracer l'historique complet de propriete de chaque carte</li>
+<li>Empecher la duplication frauduleuse et la speculation abusive</li>
+</ul>
+<hr>
+<h2 id="3-justification-de-lutilisation-de-la-blockchain">3. Justification de l'Utilisation de la Blockchain</h2>
+<p>L'utilisation de la blockchain pour ce projet se justifie par les principes fondamentaux suivants :</p>
+<h3 id="31-decentralisation">3.1 Decentralisation</h3>
+<p>Aucune autorite centrale ne controle le marche. Les echanges s'effectuent directement entre utilisateurs via des smart contracts, sans intermediaire. Cette approche elimine les risques lies a un point de defaillance unique.</p>
+<h3 id="32-immutabilite">3.2 Immutabilite</h3>
+<p>Une fois une carte creee ou un echange valide, l'information est inscrite de maniere permanente sur la blockchain. L'historique des transactions et des proprietaires ne peut etre ni modifie ni supprime, garantissant ainsi l'integrite des donnees.</p>
+<h3 id="33-transparence">3.3 Transparence</h3>
+<p>Toutes les transactions sont publiques et verifiables par quiconque. Les utilisateurs peuvent auditer le code des smart contracts et verifier les regles metier appliquees. Cette transparence renforce la confiance dans le systeme.</p>
+<h3 id="34-securite">3.4 Securite</h3>
+<p>Les mecanismes cryptographiques de la blockchain garantissent que seul le proprietaire legitime d'une carte peut la transferer. Les smart contracts executent automatiquement les regles definies, eliminant les risques de fraude ou d'erreur humaine.</p>
+<h3 id="35-rarete-verifiable">3.5 Rarete Verifiable</h3>
+<p>Contrairement aux systemes centralises ou l'editeur peut creer des copies a volonte, la blockchain permet de prouver mathematiquement la rarete d'une carte. Le nombre d'exemplaires est inscrit dans le smart contract et ne peut etre modifie.</p>
+<hr>
+<h2 id="4-description-des-ressources-tokenisees">4. Description des Ressources Tokenisees</h2>
+<h3 id="41-niveaux-de-rarete">4.1 Niveaux de Rarete</h3>
+<p>Chaque carte possede un niveau de rarete parmi les quatre categories suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Nom</th>
+<th>Valeur de Base</th>
+<th>Disponibilite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Commune</td>
+<td>10</td>
+<td>Illimitee</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Rare</td>
+<td>50</td>
+<td>Limitee</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Epique</td>
+<td>200</td>
+<td>Tres limitee</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Legendaire</td>
+<td>1000</td>
+<td>Ultra rare</td>
+</tr>
+</tbody>
+</table>
+<p>La valeur de base determine le poids de la carte dans les mecanismes d'echange et permet d'etablir des equivalences entre cartes de raretes differentes.</p>
+<h3 id="42-types-de-cartes">4.2 Types de Cartes</h3>
+<p>Chaque carte appartient a l'un des quatre types thematiques suivants :</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guerrier</td>
+<td>Personnages de combat, heros et combattants</td>
+</tr>
+<tr>
+<td>Mage</td>
+<td>Personnages magiques, sorciers et enchanteurs</td>
+</tr>
+<tr>
+<td>Creature</td>
+<td>Monstres, animaux mythiques et etres fantastiques</td>
+</tr>
+<tr>
+<td>Artefact</td>
+<td>Objets magiques, equipements et reliques</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-attributs-des-cartes">4.3 Attributs des Cartes</h3>
+<p>Chaque carte possede les attributs suivants :</p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Nom unique de la carte</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type thematique</td>
+</tr>
+<tr>
+<td>rarity</td>
+<td>string</td>
+<td>Niveau de rarete</td>
+</tr>
+<tr>
+<td>value</td>
+<td>uint</td>
+<td>Valeur associee selon la rarete</td>
+</tr>
+<tr>
+<td>power</td>
+<td>uint</td>
+<td>Statistique de puissance (1-100)</td>
+</tr>
+<tr>
+<td>defense</td>
+<td>uint</td>
+<td>Statistique de defense (1-100)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-regles-metier">5. Regles Metier</h2>
+<h3 id="51-regles-dechange-de-tokens">5.1 Regles d'Echange de Tokens</h3>
+<h4 id="echange-direct">Echange Direct</h4>
+<p>Un utilisateur peut proposer une carte a un autre utilisateur en echange d'une de ses cartes. La transaction necessite la validation des deux parties pour etre executee.</p>
+<h4 id="regles-de-conversion">Regles de Conversion</h4>
+<p>Un echange est considere comme equitable si les valeurs des cartes respectent un ratio maximum de 1:5. Cela signifie qu'une carte de valeur 10 peut etre echangee contre une carte de valeur 50 maximum. Au-dela de ce ratio, le smart contract refuse la transaction.</p>
+<p>Exemples d'echanges valides :</p>
+<ul>
+<li>Carte Commune (10) contre Carte Commune (10) : ratio 1:1</li>
+<li>Carte Commune (10) contre Carte Rare (50) : ratio 1:5</li>
+<li>Carte Rare (50) contre Carte Epique (200) : ratio 1:4</li>
+</ul>
+<p>Exemples d'echanges refuses :</p>
+<ul>
+<li>Carte Commune (10) contre Carte Epique (200) : ratio 1:20 (depasse 1:5)</li>
+<li>Carte Commune (10) contre Carte Legendaire (1000) : ratio 1:100 (depasse 1:5)</li>
+</ul>
+<h4 id="validation-des-transactions">Validation des Transactions</h4>
+<p>Le smart contract effectue les verifications suivantes avant de valider un echange :</p>
+<ul>
+<li>Les deux utilisateurs possedent bien les cartes concernees</li>
+<li>Les regles de conversion sont respectees</li>
+<li>Les contraintes temporelles sont satisfaites</li>
+<li>Aucun des deux utilisateurs n'a atteint la limite de possession</li>
+</ul>
+<h3 id="52-limites-de-possession">5.2 Limites de Possession</h3>
+<p>Chaque utilisateur ne peut posseder que <strong>4 cartes maximum</strong> dans sa collection. Cette contrainte :</p>
+<ul>
+<li>Oblige les joueurs a faire des choix strategiques</li>
+<li>Favorise les echanges entre utilisateurs</li>
+<li>Empeche l'accumulation excessive par un seul joueur</li>
+</ul>
+<p>Si un utilisateur possede deja 4 cartes et souhaite en acquerir une nouvelle, il doit prealablement echanger ou bruler l'une de ses cartes existantes.</p>
+<h3 id="53-contraintes-temporelles">5.3 Contraintes Temporelles</h3>
+<h4 id="cooldown-entre-transactions">Cooldown entre Transactions</h4>
+<p>Un utilisateur doit attendre <strong>5 minutes</strong> entre deux transactions successives (echange ou acquisition). Cette contrainte :</p>
+<ul>
+<li>Empeche la speculation rapide</li>
+<li>Protege contre les attaques automatisees (bots)</li>
+<li>Laisse le temps aux utilisateurs de reflechir a leurs actions</li>
+</ul>
+<h4 id="lock-apres-acquisition">Lock apres Acquisition</h4>
+<p>Apres avoir recu une nouvelle carte (par echange ou mint), celle-ci est verrouillee pendant <strong>10 minutes</strong>. Durant cette periode :</p>
+<ul>
+<li>La carte ne peut pas etre echangee</li>
+<li>La carte ne peut pas etre brulee</li>
+<li>La carte reste visible dans la collection du proprietaire</li>
+</ul>
+<p>Ce mecanisme :</p>
+<ul>
+<li>Simule une periode de confirmation</li>
+<li>Securise les transactions contre les echanges en cascade</li>
+<li>Permet de detecter d'eventuelles anomalies</li>
+</ul>
+<hr>
+<h2 id="6-format-des-metadonnees">6. Format des Metadonnees</h2>
+<p>Les metadonnees de chaque carte sont stockees sur IPFS au format JSON. Voici la structure complete :</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Dragon des Abysses"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Creature"</span>,
+    <span class="hljs-attr">"rarity"</span>: <span class="hljs-string">"Legendaire"</span>,
+    <span class="hljs-attr">"value"</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">"power"</span>: <span class="hljs-number">95</span>,
+    <span class="hljs-attr">"defense"</span>: <span class="hljs-number">80</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Un dragon ancestral qui regne sur les profondeurs marines."</span>,
+    <span class="hljs-attr">"image"</span>: <span class="hljs-string">"ipfs://QmXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>,
+    <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"QmYyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"</span>,
+    <span class="hljs-attr">"previousOwners"</span>: [
+        <span class="hljs-string">"0x1234567890abcdef1234567890abcdef12345678"</span>,
+        <span class="hljs-string">"0xabcdef1234567890abcdef1234567890abcdef12"</span>
+    ],
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-number">1706700000</span>,
+    <span class="hljs-attr">"lastTransferAt"</span>: <span class="hljs-number">1706750000</span>,
+    <span class="hljs-attr">"edition"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"maxEdition"</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">"creator"</span>: <span class="hljs-string">"0x9876543210fedcba9876543210fedcba98765432"</span>
+}
+</div></code></pre>
+<h3 id="description-des-champs">Description des Champs</h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Nom unique de la carte</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type thematique (Guerrier, Mage, Creature, Artefact)</td>
+</tr>
+<tr>
+<td>rarity</td>
+<td>string</td>
+<td>Niveau de rarete (Commune, Rare, Epique, Legendaire)</td>
+</tr>
+<tr>
+<td>value</td>
+<td>uint</td>
+<td>Valeur associee selon la rarete</td>
+</tr>
+<tr>
+<td>power</td>
+<td>uint</td>
+<td>Statistique de puissance (1-100)</td>
+</tr>
+<tr>
+<td>defense</td>
+<td>uint</td>
+<td>Statistique de defense (1-100)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Description narrative de la carte</td>
+</tr>
+<tr>
+<td>image</td>
+<td>string</td>
+<td>URI IPFS de l'image de la carte</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>string</td>
+<td>Hash IPFS du fichier de metadonnees complet</td>
+</tr>
+<tr>
+<td>previousOwners</td>
+<td>array</td>
+<td>Liste des adresses des anciens proprietaires</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>uint</td>
+<td>Timestamp de creation (format Unix)</td>
+</tr>
+<tr>
+<td>lastTransferAt</td>
+<td>uint</td>
+<td>Timestamp du dernier transfert</td>
+</tr>
+<tr>
+<td>edition</td>
+<td>uint</td>
+<td>Numero d'edition de la carte</td>
+</tr>
+<tr>
+<td>maxEdition</td>
+<td>uint</td>
+<td>Nombre maximum d'exemplaires pour cette carte</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>address</td>
+<td>Adresse du createur original de la carte</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="7-architecture-fonctionnelle">7. Architecture Fonctionnelle</h2>
+<pre class="hljs"><code><div>+--------------------------------------------------+
+|                    UTILISATEUR                    |
++--------------------------------------------------+
+                        |
+                        v
++--------------------------------------------------+
+|              FRONTEND (React + Ethers.js)         |
+|  - Connexion Wallet (MetaMask)                   |
+|  - Affichage de la collection                    |
+|  - Interface d'echange                           |
+|  - Visualisation des cartes                      |
++--------------------------------------------------+
+                        |
+                        v
++--------------------------------------------------+
+|              SMART CONTRACTS (Solidity)           |
+|  - CardNFT.sol : Gestion des tokens ERC-721      |
+|  - CardMarket.sol : Logique d'echange            |
+|  - Contraintes temporelles et limites            |
++--------------------------------------------------+
+                        |
+                        v
++--------------------------------------------------+
+|              BLOCKCHAIN ETHEREUM                  |
+|  - Testnet Sepolia (developpement)               |
+|  - Stockage des tokens et transactions           |
++--------------------------------------------------+
+                        |
+                        v
++--------------------------------------------------+
+|                      IPFS                         |
+|  - Stockage des metadonnees JSON                 |
+|  - Stockage des images des cartes                |
++--------------------------------------------------+
+</div></code></pre>
+<hr>
+<h2 id="8-recapitulatif-des-contraintes-techniques">8. Recapitulatif des Contraintes Techniques</h2>
+<table>
+<thead>
+<tr>
+<th>Contrainte</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokenisation des ressources</td>
+<td>Tokens ERC-721 avec 4 niveaux de rarete</td>
+</tr>
+<tr>
+<td>Echanges de tokens</td>
+<td>Smart contract avec ratio de conversion 1:5</td>
+</tr>
+<tr>
+<td>Limites de possession</td>
+<td>Maximum 4 cartes par utilisateur</td>
+</tr>
+<tr>
+<td>Cooldown entre transactions</td>
+<td>5 minutes entre deux operations</td>
+</tr>
+<tr>
+<td>Lock apres acquisition</td>
+<td>10 minutes de verrouillage</td>
+</tr>
+<tr>
+<td>Stockage IPFS</td>
+<td>Metadonnees et images sur IPFS</td>
+</tr>
+<tr>
+<td>Tests unitaires</td>
+<td>Framework Hardhat avec couverture significative</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-conclusion">9. Conclusion</h2>
+<p>Ce projet de marche decentralise de cartes de collection numeriques repond aux exigences du cahier des charges tout en proposant un cas d'usage concret et engageant. L'utilisation de la blockchain Ethereum garantit la securite, la transparence et l'immutabilite des transactions, tandis que le stockage sur IPFS assure la perennite des metadonnees.</p>
+<p>Les regles metier definies (limites de possession, contraintes temporelles, regles d'echange) permettent de creer un ecosysteme equilibre qui favorise les interactions entre utilisateurs tout en empechant les abus.</p>
+
+</body>
+
+</html>

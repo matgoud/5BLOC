@@ -261,3 +261,4 @@ Les metadonnees de chaque carte sont stockees sur IPFS au format JSON. Voici la 
 Ce projet de marche decentralise de cartes de collection numeriques repond aux exigences du cahier des charges tout en proposant un cas d'usage concret et engageant. L'utilisation de la blockchain Ethereum garantit la securite, la transparence et l'immutabilite des transactions, tandis que le stockage sur IPFS assure la perennite des metadonnees.
 
 Les regles metier definies (limites de possession, contraintes temporelles, regles d'echange) permettent de creer un ecosysteme equilibre qui favorise les interactions entre utilisateurs tout en empechant les abus.
+
