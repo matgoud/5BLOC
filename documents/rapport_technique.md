@@ -105,17 +105,23 @@ Format des metadonnees :
   "value": "uint",
   "power": "uint",
   "defense": "uint",
+  "description": "string",
+  "image": "ipfs://...",
+  "hash": "Qm...",
   "previousOwners": ["address"],
   "createdAt": "timestamp",
-  "lastTransferAt": "timestamp"
+  "lastTransferAt": "timestamp",
+  "edition": "uint",
+  "maxEdition": "uint",
+  "creator": "address"
 }
 ```
 
 ### Tests unitaires
 
-Couverture des tests :
-- CardNFT : deploiement, mint, limites, cooldown, lock, transferts
-- CardMarketplace : deploiement, propositions, ratio, acceptation, annulation, expiration
+47 tests couvrant :
+- CardNFT : deploiement, mint, limites, cooldown, lock, transferts, lecture
+- CardMarketplace : deploiement, propositions, ratio, acceptation, annulation, expiration, scenarios complexes
 
 Execution : `npx hardhat test`
 
